@@ -1,6 +1,13 @@
+import React from 'react';
+import Movie from './Movie.jsx';
+
 const MovieList = (props) => {
     return (
-        <div>this is my movie list</div>
+        props.movies.map(movie => {
+            return (
+                <div className='movielist' key={movie.title}><Movie movie={movie}/></div>
+            )
+        })
     )
 
 }

@@ -1,15 +1,17 @@
 import React from 'react';
-// import MovieList from 'MovieList.jsx';
+import MovieList from './MovieList.jsx';
 
 class App extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
     render() {
         return (
-            <div><h1>Movie List</h1>
+            <div>
+            <div className='title'><h1>Movie List</h1></div>
+            <div><MovieList movies={this.props.movies}/></div>
             </div>
-            // <div><MovieList movies={props.movies}/></div>
         )
     }
 
