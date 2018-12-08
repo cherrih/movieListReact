@@ -5,7 +5,7 @@ const MovieList = (props) => {
   return (
       props.movies.map(movie => {
           return (
-              <div className='movielist' key={movie.title}><Movie movie={movie}/></div>
+              <div className='movielist' key={movie.title}><Movie movie={movie} clickHandler={props.handleWatchedClick}/></div>
           )
       })
   )

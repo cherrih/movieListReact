@@ -1,5 +1,7 @@
 var movies = [
-  {title:'test'}
+  {title: '101 dalmations'},
+  {title: 'aladdin'},
+  {title: 'thor'}
 ]
 var watchedMovies = []
 

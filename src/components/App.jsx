@@ -43,13 +43,31 @@ class App extends React.Component {
     this.setState({movies:movies})
   }
 
+  handleToWatchSubmit(event) {
+    event.preventDefault();
+    console.log('clicked!');
+  }
+  handleWatchedSubmit(event) {
+    event.preventDefault();
+    console.log('clicked!');
+  }
+  handleWatchedClick(event) {
+    event.preventDefault();
+    console.log(event);
+  }
+
   render() {
       return (
         <div>
         <div className='title'><h1>Movie List</h1></div>
         <div><AddMovie handleAddSubmit={this.handleAddSubmit.bind(this)} handleAddChange={this.handleAddChange.bind(this)}/></div>
-        <div><Search handleSubmit={this.handleSearchSubmit.bind(this)} handleChange={this.handleSearchChange.bind(this)}/></div>
-        <div><MovieList movies={this.state.movies}/></div>
+        <span>
+          <Search handleSearchSubmit={this.handleSearchSubmit.bind(this)} 
+            handleSearchChange={this.handleSearchChange.bind(this)}
+            handleToWatchSubmit={this.handleToWatchSubmit.bind(this)}
+            handleWatchedSubmit={this.handleWatchedSubmit.bind(this)}/>
+          </span>
+        <div><MovieList movies={this.state.movies} handleWatchedClick={this.handleWatchedClick.bind(this)}/></div>
         </div>
       )
   }
