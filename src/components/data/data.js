@@ -1,10 +1,7 @@
 var movies = [
-    // {title: 'Mean Girls'},
-    // {title: 'Hackers'},
-    // {title: 'The Grey'},
-    // {title: 'Sunshine'},
-    // {title: 'Ex Machina'},
+  {title:'test'}
 ]
+var watchedMovies = []
 
 
 export default movies;
