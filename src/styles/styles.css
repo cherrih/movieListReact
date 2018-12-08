@@ -40,7 +40,7 @@ body {
   float:left;
 }
 
-#watchedbutton {
+.watchedbutton {
   float:right;
   background-color: #8FBC8F;
   color: white;

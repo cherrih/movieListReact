@@ -7,6 +7,7 @@ const MovieList = (props) => {
           return (
               <div className='movielist' key={movie.title}><Movie movie={movie} clickHandler={props.handleWatchedClick}/></div>
           )
+          
       })
   )
 

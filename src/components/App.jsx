@@ -12,6 +12,7 @@ class App extends React.Component {
       movies: movies,
       addValue: '',
       watchedMovies: [],
+      show: true,
     };
   }
 
@@ -27,7 +28,7 @@ class App extends React.Component {
       } 
     })
     if (updatedMovies.length === 0) {
-      alert('Oops! I couldn\'t find that. Try again.');
+      alert('Oops! I couldn\'t find that one. Try again.');
       this.setState({movies: movies})
     } else {
       this.setState({movies: updatedMovies});
@@ -46,14 +47,26 @@ class App extends React.Component {
   handleToWatchSubmit(event) {
     event.preventDefault();
     console.log('clicked!');
+    this.setState({movies: movies})
   }
   handleWatchedSubmit(event) {
     event.preventDefault();
     console.log('clicked!');
+    this.setState({movies: this.state.watchedMovies})
   }
   handleWatchedClick(event) {
     event.preventDefault();
-    console.log(event);
+    //can get the div element that's selected then set show to false
+    //console.log(document.getElementsByClassName(event.target.id)[0])
+    
+    //find the movie in the array, slice and push to watched array
+    // console.log(event.target.id);
+    this.state.watchedMovies.push({title: event.target.id});
+    console.log(this.state.watchedMovies);
+    // console.log({title: event.target.id});
+
+    // var index = this.state.movies.indexOf(event.target.id);
+    // console.log(index);
   }
 
   render() {

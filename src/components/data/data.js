@@ -1,9 +1,11 @@
 var movies = [
   {title: '101 dalmations'},
   {title: 'aladdin'},
-  {title: 'thor'}
+  {title: 'thor'},
+  {title: 'majik and rose'}
+
 ]
-var watchedMovies = []
+// var watchedMovies = []
 
 
 export default movies;
