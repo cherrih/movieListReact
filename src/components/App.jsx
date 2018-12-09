@@ -11,8 +11,7 @@ class App extends React.Component {
       searchValue: '',
       movies: movies,
       addValue: '',
-      watchedMovies: [],
-      show: true,
+      watchedTab: false,
     };
   }
 
@@ -22,7 +21,7 @@ class App extends React.Component {
   handleSearchSubmit(event) {
     event.preventDefault();
     let updatedMovies = [];
-    this.state.movies.forEach(movie => {
+    movies.forEach(movie => {
       if (movie.title.includes(this.state.searchValue)) {
         updatedMovies.push(movie);
       } 
@@ -40,33 +39,32 @@ class App extends React.Component {
   }
   handleAddSubmit(event) {
     event.preventDefault();
-    movies.push({title: this.state.addValue})
+    movies.push({title: this.state.addValue, watched: false})
     this.setState({movies:movies})
   }
 
+
   handleToWatchSubmit(event) {
     event.preventDefault();
-    console.log('clicked!');
-    this.setState({movies: movies})
+    this.setState({watchedTab: false});
+    this.forceUpdate();
+    console.log(this.state.watchedTab)
   }
   handleWatchedSubmit(event) {
     event.preventDefault();
-    console.log('clicked!');
-    this.setState({movies: this.state.watchedMovies})
+    this.setState({watchedTab: true});
+    this.forceUpdate();
+    console.log(this.state.watchedTab)
   }
   handleWatchedClick(event) {
     event.preventDefault();
-    //can get the div element that's selected then set show to false
-    //console.log(document.getElementsByClassName(event.target.id)[0])
+    movies.forEach(movie => {
+      if (movie.title === event.target.id) {
+        movie.watched = true;
+      } 
+    })
+    this.forceUpdate();
     
-    //find the movie in the array, slice and push to watched array
-    // console.log(event.target.id);
-    this.state.watchedMovies.push({title: event.target.id});
-    console.log(this.state.watchedMovies);
-    // console.log({title: event.target.id});
-
-    // var index = this.state.movies.indexOf(event.target.id);
-    // console.log(index);
   }
 
   render() {
@@ -80,7 +78,7 @@ class App extends React.Component {
             handleToWatchSubmit={this.handleToWatchSubmit.bind(this)}
             handleWatchedSubmit={this.handleWatchedSubmit.bind(this)}/>
           </span>
-        <div><MovieList movies={this.state.movies} handleWatchedClick={this.handleWatchedClick.bind(this)}/></div>
+        <div><MovieList watchedTab={this.state.watchedTab} movies={this.state.movies} handleWatchedClick={this.handleWatchedClick.bind(this)}/></div>
         </div>
       )
   }
