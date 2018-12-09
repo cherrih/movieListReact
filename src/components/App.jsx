@@ -56,11 +56,12 @@ class App extends React.Component {
     this.forceUpdate();
     console.log(this.state.watchedTab)
   }
+
   handleWatchedClick(event) {
     event.preventDefault();
     movies.forEach(movie => {
       if (movie.title === event.target.id) {
-        movie.watched = true;
+        movie.watched = !movie.watched;
       } 
     })
     this.forceUpdate();

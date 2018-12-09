@@ -4,7 +4,7 @@ import Movie from './Movie.jsx';
 const MovieList = (props) => {
   var toggle = props.watchedTab;
   //make new arr with ternary: if true then filter for movie.watched otherwise whole array
-  var arr = toggle ? props.movies.filter((movie) => movie.watched === true) : props.movies;
+  var arr = toggle ? props.movies.filter(movie => movie.watched === true) : props.movies.filter(movie => movie.watched === false);
   return (
     arr.map(movie => {
       return (
@@ -12,7 +12,6 @@ const MovieList = (props) => {
       ) 
     })
   )
-
 }
 
 export default MovieList;
