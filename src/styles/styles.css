@@ -15,7 +15,7 @@ body {
   margin: 0px 20px;
   border: 1px solid darkgray;
   width: 500px;
-  /* overflow: hidden; */
+  overflow: hidden;
   border-radius: 4px;
 }
 
@@ -36,15 +36,18 @@ body {
 }
 
 .movietitle {
-  /* float:left; */
+  float:left;
   padding: 20px 40px;
 }
 
 .watchedbutton {
-  /* float:right; */
+  float:right;
   background-color: #8FBC8F;
   color: white;
   border-radius: 4px;
+  margin-top: 20px;
+  margin-right: 40px;
+
 }
 #watched {
   background-color: #8FBC8F;

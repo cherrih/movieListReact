@@ -10,12 +10,14 @@ const MovieList = (props) => {
     arr.map(movie => {
       return (
         <div key={movie.title}>
-        <div className='movielist' id={movie.title} onClick={props.handleDisplay}><Movie movie={movie} handleDisplay={props.handleDisplay}/></div>
-        <div id={movie.title}><Description watched = {movie.watched} movie={movie} display = {movie.displayData}/></div>
+        <div className='movielist' id={movie.title} onClick={props.handleDisplay}><Movie movie={movie} handleDisplay={props.handleDisplay}clickHandler={props.handleWatchedClick} watched={movie.watched} /></div>
+        <div id={movie.title}><Description  movie={movie} display={movie.displayData}/></div>
         </div>
       ) 
     })
   )
 }
+      {/* <Description watched = {props.movie.watched} clickHandler={props.handleWatchedClick} movie={props.movie}/> */}
+
 
 export default MovieList;
