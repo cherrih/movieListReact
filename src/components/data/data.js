@@ -1,19 +1,8 @@
 var movies = [
-  {title: 'Danger Zone', watched: false},
-  {title: 'Aladdin', watched: false},
-  {title: 'Thor', watched: false},
-  {title: 'Lizzie Maguire', watched: false}
+  {title: 'Danger Zone', displayData:false, watched: false, year: 1990, runtime: '107 minutes', metascore: 46, imdbRating: 9.2},
+  {title: 'Aladdin', displayData:false, watched: false, year: 1990, runtime: '107 minutes', metascore: 46, imdbRating: 9.2},
+  {title: 'Thor', displayData:false, watched: false, year: 1990, runtime: '107 minutes', metascore: 46, imdbRating: 9.2},
+  {title: 'Lizzie Maguire', displayData:false, watched: false, year: 1990, runtime: '107 minutes', metascore: 46, imdbRating: 9.2}
 
 ]
-// var watchedMovies = []
-
-
 export default movies;
-
-
-// watched: false on each new obj
-//toggleStatus click function set to opposite boolean
-//obj.watched = !obj.watched
-// this.forceUpdate()
-
-//

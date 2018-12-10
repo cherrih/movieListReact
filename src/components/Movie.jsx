@@ -1,35 +1,14 @@
 import React from 'react';
 
 const Movie = props => {
-  var watched = props.movie.watched;
+  var displayData = props.movie.displayData;
+
   return (
-    <div className={props.movie.title}>
-      <div>
-      { watched ? 
-        <div>
-      <span id='movietitle' className='watched'>{props.movie.title}</span>
-      <span ><input type='submit' value='to watch' id={props.movie.title} className='watchedbutton' onClick={props.clickHandler}/></span>
-    </div>  
-        :
-        <div>
-        <span id='movietitle'>{props.movie.title}</span>
-        <span ><input type='submit' value='watched' id={props.movie.title} className='watchedbutton' onClick={props.clickHandler}/></span>
-      </div>
-      }
-      </div> 
+    <div className={props.movie.title} >
+      <div id={props.movie.title}className='movietitle'>{props.movie.title}</div>
+      {/* <Description watched = {props.movie.watched} clickHandler={props.handleWatchedClick} movie={props.movie}/> */}
     </div>
   )
 }
 
 export default Movie;
-
-
-
-// return (
-//   <div className={props.movie.title}>
-    // <div>
-    //   <span id='movietitle'>{props.movie.title}</span>
-    //   <span ><input type='submit' value='watched' id={props.movie.title} className='watchedbutton' onClick={props.clickHandler}/></span>
-    // </div> 
-//   </div>
-// )

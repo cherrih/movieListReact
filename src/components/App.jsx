@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   handleAddSubmit(event) {
     event.preventDefault();
-    movies.push({title: this.state.addValue, watched: false})
+    movies.push({title: this.state.addValue, displayData:false, watched: false, year: 1990, runtime: '107 minutes', metascore: 46, imdbRating: 9.2})
     this.setState({movies:movies})
   }
 
@@ -48,13 +48,11 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({watchedTab: false});
     this.forceUpdate();
-    console.log(this.state.watchedTab)
   }
   handleWatchedSubmit(event) {
     event.preventDefault();
     this.setState({watchedTab: true});
     this.forceUpdate();
-    console.log(this.state.watchedTab)
   }
 
   handleWatchedClick(event) {
@@ -62,24 +60,44 @@ class App extends React.Component {
     movies.forEach(movie => {
       if (movie.title === event.target.id) {
         movie.watched = !movie.watched;
+        movie.displayData = !movie.displayData;
       } 
     })
     this.forceUpdate();
     
   }
 
+  displayDataHandler(event) {
+    movies.forEach(movie => {
+      if (movie.title === event.target.id) {
+        movie.displayData = !movie.displayData;
+      } 
+    })
+    this.forceUpdate();
+  }
+
   render() {
       return (
         <div>
         <div className='title'><h1>Movie List</h1></div>
-        <div><AddMovie handleAddSubmit={this.handleAddSubmit.bind(this)} handleAddChange={this.handleAddChange.bind(this)}/></div>
+        <div>
+          <AddMovie 
+          handleAddSubmit={this.handleAddSubmit.bind(this)} 
+          handleAddChange={this.handleAddChange.bind(this)}/>
+        </div>
         <span>
           <Search handleSearchSubmit={this.handleSearchSubmit.bind(this)} 
             handleSearchChange={this.handleSearchChange.bind(this)}
             handleToWatchSubmit={this.handleToWatchSubmit.bind(this)}
             handleWatchedSubmit={this.handleWatchedSubmit.bind(this)}/>
           </span>
-        <div><MovieList watchedTab={this.state.watchedTab} movies={this.state.movies} handleWatchedClick={this.handleWatchedClick.bind(this)}/></div>
+          <div>
+            <MovieList handleDisplay={this.displayDataHandler.bind(this)} 
+              displayData={this.state.displayData}
+              watchedTab={this.state.watchedTab} 
+              movies={this.state.movies} 
+              handleWatchedClick={this.handleWatchedClick.bind(this)}/>
+          </div>
         </div>
       )
   }

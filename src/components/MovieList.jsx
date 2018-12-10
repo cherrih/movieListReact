@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from './Movie.jsx';
+import Description from './Description.jsx';
 
 const MovieList = (props) => {
   var toggle = props.watchedTab;
@@ -8,7 +9,10 @@ const MovieList = (props) => {
   return (
     arr.map(movie => {
       return (
-        <div className='movielist' key={movie.title}><Movie movie={movie} clickHandler={props.handleWatchedClick}/></div>
+        <div key={movie.title}>
+        <div className='movielist' id={movie.title} onClick={props.handleDisplay}><Movie movie={movie} handleDisplay={props.handleDisplay}/></div>
+        <div id={movie.title}><Description watched = {movie.watched} movie={movie} display = {movie.displayData}/></div>
+        </div>
       ) 
     })
   )

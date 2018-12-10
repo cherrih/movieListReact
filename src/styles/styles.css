@@ -13,10 +13,9 @@ body {
 
 .movielist {
   margin: 0px 20px;
-  padding: 20px 40px;
   border: 1px solid darkgray;
   width: 500px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 4px;
 }
 
@@ -36,12 +35,13 @@ body {
   border-radius: 4px;
 }
 
-#movietitle {
-  float:left;
+.movietitle {
+  /* float:left; */
+  padding: 20px 40px;
 }
 
 .watchedbutton {
-  float:right;
+  /* float:right; */
   background-color: #8FBC8F;
   color: white;
   border-radius: 4px;
@@ -59,3 +59,11 @@ body {
   border-radius: 4px;
 }
 
+#description {
+  margin-left: 20px;
+  /* margin-top: 10px;
+  margin-bottom: 20px; */
+  padding: 20px 40px;
+  border: 1px dotted darkgray;
+  width: 420px;
+}
